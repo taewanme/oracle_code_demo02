@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Big Data on sev02-Oracle Cloud 블로그</title>
+    <link>/tags/big-data/</link>
+    <description>Recent content in Big Data on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 Aug 2017 23:20:25 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/big-data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apache Kafka PaaS: Oracle Event Hub CS 소개..</title>
+      <link>/post/kafka_paas_eventhub_cs/</link>
+      <pubDate>Mon, 14 Aug 2017 23:20:25 +0900</pubDate>
+      
+      <guid>/post/kafka_paas_eventhub_cs/</guid>
+      <description>Oracle Cloud는 Apache Kafka(이하 Kafka)를 클라우드 관리 서비스(PaaS) 형태로 제공하고 있습니다. Oracle Cloud가 2017년 1월에 출시한 &amp;ldquo;Oracle Event Hub Cloud Service&amp;rdquo;(이하 Oracle Event Hub CS)가 바로 Kafka 관리 서비스입니다. Oracle Event Hub CS는 오라클이 기술지원하고 관리하는 클라우드 서비스로 Kafka 클러스터의 효율적인 관리 방법과 지속적인 확장성을 제공합니다. 본 문서는 다음과 같은 내용으로 구성됩니다.
+ Oracle Event Hub CS 소개 Oracle Event Hub CS 클러스터 생성 Kafak 클러스터에 Topic 생성 Topic에 데이터 저장(Producing) &amp;amp; 가져오기(Consuming) 테스트  Oracle Event Hub CS Oracle Event Hub CS는 Kafaka 클라우드 관리형 서비스(managed service)입니다.</description>
+    </item>
+    
+    <item>
+      <title>Oracle BDCSCE: 클러스터 생성 </title>
+      <link>/post/stpe_by_step_new_cluster_bdcsce/</link>
+      <pubDate>Mon, 31 Jul 2017 11:59:47 +0900</pubDate>
+      
+      <guid>/post/stpe_by_step_new_cluster_bdcsce/</guid>
+      <description>Oracle Big Data Cloud Service Compute-Edition(이하 Oracle BDCSCE)은 PaaS 형태로 제공되는 Oracle Pubic Cloud의 빅데이터 서비스입니다. 본 문서에서는 Oracle BDCSCE 서비스를 이용하여 하둡 클러스터를 생성하는 절차를 소개합니다.
+본 문서는 오라클 클라우드 트라이얼 계정을 사용하여 진행하겠습니다. Oracle BDCSCE 서비스를 이용하여 하둡 클러스터를 생성하기 위해서는 오라클 클라우드 계정이 필요합니다. 오라클 계정이 없으면 다음 문서를 참조하여 실습하기 전에 오라클 클라우드 계정을 만드시기 바랍니다.
+ 오라클 클라우드 트라이얼 계정 생성 - http://www.oracloud.kr/post/accont/  Oracle BDCSCE 서비스에서 클러스터를 생성하기 위해서는 Oracle Storage CS 정보를 입력해야 합니다.</description>
+    </item>
+    
+    <item>
+      <title>Oracle Big Data Cloud Service Compute-Edition</title>
+      <link>/post/bdcsce01/</link>
+      <pubDate>Thu, 27 Jul 2017 11:59:47 +0900</pubDate>
+      
+      <guid>/post/bdcsce01/</guid>
+      <description>빅데이터 기술을 사용하면서 가장 어려운 부분은 오픈소스로 구성된 빅데이터 에코 기술을 설치하고 관리하는 부분입니다. 빅데이터 에코 기술들은 여러 오픈소스 프로젝트로 구성되어 있고, 각 오픈소스 프로젝트는 특정 오픈소스 프로젝트의 버전에 의존성을 갖고 있습니다. 또한, 각 오픈소스는 개별적인 업그레이드 주기를 갖습니다. 여러 오픈소스 프로젝트가 상호 버전 의존성을 갖고 있고, 개별적인 업그레이드 주기를 갖는 기술들로 빅데이터 환경을 구성하고 관리하기 위해서는 많은 노력이 필요합니다. 이 문제를 해결하기 위해서 Cloudera와 Hotonworks는 빅데이터 오픈소스 프로젝트들의 검증된 버전을 모아 패키지로 관리합니다.</description>
+    </item>
+    
+    <item>
+      <title>Big Data Preparation Cloud Service소개</title>
+      <link>/post/bdpcs/</link>
+      <pubDate>Tue, 25 Apr 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/post/bdpcs/</guid>
+      <description>데이터 수집 기술의 발전으로 기업의 데이터는 빠르게 늘고 있으며, 특히 데이터 저장 비용의 감소로 기업의 비정형데이터의 양은 급격히 증가하고 있습니다. 그러나 비정형데이터는 유형의 다양성과 데이터 구조의 변동성으로 인해서 활용에 많은 시간과 비용을 들여 사전적업을 해야 합니다. 그리고 그 작업은 반복적으로 수행됩니다.
+Oracle Big Data Preparation Cloud Service는 기업 내·외부의 다양한 비정형데이터를 정제하여 정형화를 가능하게 하는 Cloud서비스입니다. 그리고 Oracle Big Data Preparation Cloud Service는 IT전문가가 아니더라도 Self-Service로 비정형데이터를 정형화할 수 있도록 지원합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on sev02-Oracle Cloud 블로그</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Apr 2017 19:01:16 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Acc</title>
+      <link>/tags/acc/</link>
+      <pubDate>Wed, 19 Apr 2017 19:01:16 +0900</pubDate>
+      
+      <guid>/tags/acc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analytics</title>
+      <link>/tags/analytics/</link>
+      <pubDate>Mon, 15 May 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/tags/analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Api</title>
+      <link>/tags/api/</link>
+      <pubDate>Wed, 23 Aug 2017 21:00:00 +0900</pubDate>
+      
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Api Catalog</title>
+      <link>/tags/api-catalog/</link>
+      <pubDate>Wed, 23 Aug 2017 21:00:00 +0900</pubDate>
+      
+      <guid>/tags/api-catalog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Automation</title>
+      <link>/tags/automation/</link>
+      <pubDate>Sat, 01 Apr 2017 17:15:48 +0900</pubDate>
+      
+      <guid>/tags/automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Backup</title>
+      <link>/tags/backup/</link>
+      <pubDate>Wed, 10 May 2017 16:20:58 +0900</pubDate>
+      
+      <guid>/tags/backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bdcsce</title>
+      <link>/tags/bdcsce/</link>
+      <pubDate>Mon, 31 Jul 2017 11:59:47 +0900</pubDate>
+      
+      <guid>/tags/bdcsce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bdpcs</title>
+      <link>/tags/bdpcs/</link>
+      <pubDate>Tue, 25 Apr 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/tags/bdpcs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Big Data</title>
+      <link>/tags/big-data/</link>
+      <pubDate>Mon, 14 Aug 2017 23:20:25 +0900</pubDate>
+      
+      <guid>/tags/big-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bmcs</title>
+      <link>/tags/bmcs/</link>
+      <pubDate>Fri, 21 Apr 2017 17:15:48 +0900</pubDate>
+      
+      <guid>/tags/bmcs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>/tags/cloud/</link>
+      <pubDate>Sat, 26 Aug 2017 08:54:32 +0900</pubDate>
+      
+      <guid>/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Compute</title>
+      <link>/tags/compute/</link>
+      <pubDate>Thu, 04 May 2017 13:23:35 +0900</pubDate>
+      
+      <guid>/tags/compute/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Compute Cs</title>
+      <link>/tags/compute-cs/</link>
+      <pubDate>Tue, 02 May 2017 11:59:47 +0900</pubDate>
+      
+      <guid>/tags/compute-cs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Container</title>
+      <link>/tags/container/</link>
+      <pubDate>Mon, 24 Apr 2017 19:34:26 +0900</pubDate>
+      
+      <guid>/tags/container/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Management</title>
+      <link>/tags/data-management/</link>
+      <pubDate>Wed, 10 May 2017 16:20:58 +0900</pubDate>
+      
+      <guid>/tags/data-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Visualization</title>
+      <link>/tags/data-visualization/</link>
+      <pubDate>Mon, 15 May 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>/tags/database/</link>
+      <pubDate>Wed, 10 May 2017 16:20:58 +0900</pubDate>
+      
+      <guid>/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database Backup</title>
+      <link>/tags/database-backup/</link>
+      <pubDate>Fri, 31 Mar 2017 17:51:51 +0900</pubDate>
+      
+      <guid>/tags/database-backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dbcs</title>
+      <link>/tags/dbcs/</link>
+      <pubDate>Wed, 10 May 2017 16:20:58 +0900</pubDate>
+      
+      <guid>/tags/dbcs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Desktop</title>
+      <link>/tags/desktop/</link>
+      <pubDate>Mon, 15 May 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/tags/desktop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>/tags/devops/</link>
+      <pubDate>Fri, 21 Apr 2017 17:15:48 +0900</pubDate>
+      
+      <guid>/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Mon, 24 Apr 2017 19:34:26 +0900</pubDate>
+      
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Event Hub</title>
+      <link>/tags/event-hub/</link>
+      <pubDate>Mon, 14 Aug 2017 23:20:25 +0900</pubDate>
+      
+      <guid>/tags/event-hub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hadoop</title>
+      <link>/tags/hadoop/</link>
+      <pubDate>Mon, 31 Jul 2017 11:59:47 +0900</pubDate>
+      
+      <guid>/tags/hadoop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iaas</title>
+      <link>/tags/iaas/</link>
+      <pubDate>Fri, 21 Apr 2017 17:15:48 +0900</pubDate>
+      
+      <guid>/tags/iaas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iac</title>
+      <link>/tags/iac/</link>
+      <pubDate>Sat, 01 Apr 2017 17:15:48 +0900</pubDate>
+      
+      <guid>/tags/iac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Identity Domain</title>
+      <link>/tags/identity-domain/</link>
+      <pubDate>Sat, 12 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/tags/identity-domain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Integration</title>
+      <link>/tags/integration/</link>
+      <pubDate>Wed, 23 Aug 2017 21:00:00 +0900</pubDate>
+      
+      <guid>/tags/integration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ip Networks</title>
+      <link>/tags/ip-networks/</link>
+      <pubDate>Sat, 12 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/tags/ip-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kafka</title>
+      <link>/tags/kafka/</link>
+      <pubDate>Mon, 14 Aug 2017 23:20:25 +0900</pubDate>
+      
+      <guid>/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Management</title>
+      <link>/tags/management/</link>
+      <pubDate>Fri, 21 Apr 2017 10:31:26 +0900</pubDate>
+      
+      <guid>/tags/management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monitoring</title>
+      <link>/tags/monitoring/</link>
+      <pubDate>Fri, 21 Apr 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>/tags/mysql/</link>
+      <pubDate>Wed, 10 May 2017 15:48:24 +0900</pubDate>
+      
+      <guid>/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nested Virtualization</title>
+      <link>/tags/nested-virtualization/</link>
+      <pubDate>Sat, 15 Apr 2017 16:05:59 +0900</pubDate>
+      
+      <guid>/tags/nested-virtualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>/tags/network/</link>
+      <pubDate>Sat, 12 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Object Storage</title>
+      <link>/tags/object-storage/</link>
+      <pubDate>Mon, 06 Mar 2017 08:54:32 +0900</pubDate>
+      
+      <guid>/tags/object-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Occs</title>
+      <link>/tags/occs/</link>
+      <pubDate>Wed, 19 Apr 2017 19:01:16 +0900</pubDate>
+      
+      <guid>/tags/occs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Omc</title>
+      <link>/tags/omc/</link>
+      <pubDate>Fri, 21 Apr 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/tags/omc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle</title>
+      <link>/tags/oracle/</link>
+      <pubDate>Sat, 26 Aug 2017 08:54:32 +0900</pubDate>
+      
+      <guid>/tags/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle Bdcsce</title>
+      <link>/tags/oracle-bdcsce/</link>
+      <pubDate>Sun, 20 Aug 2017 23:20:25 +0900</pubDate>
+      
+      <guid>/tags/oracle-bdcsce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle Cloud</title>
+      <link>/tags/oracle-cloud/</link>
+      <pubDate>Sat, 26 Aug 2017 08:54:32 +0900</pubDate>
+      
+      <guid>/tags/oracle-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle Code</title>
+      <link>/tags/oracle-code/</link>
+      <pubDate>Sun, 27 Aug 2017 08:54:32 +0900</pubDate>
+      
+      <guid>/tags/oracle-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paas</title>
+      <link>/tags/paas/</link>
+      <pubDate>Wed, 10 May 2017 15:48:24 +0900</pubDate>
+      
+      <guid>/tags/paas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Patch</title>
+      <link>/tags/patch/</link>
+      <pubDate>Sun, 20 Aug 2017 23:20:25 +0900</pubDate>
+      
+      <guid>/tags/patch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Psm</title>
+      <link>/tags/psm/</link>
+      <pubDate>Sun, 06 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/tags/psm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ravello</title>
+      <link>/tags/ravello/</link>
+      <pubDate>Sat, 15 Apr 2017 16:05:59 +0900</pubDate>
+      
+      <guid>/tags/ravello/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>/tags/security/</link>
+      <pubDate>Thu, 04 May 2017 13:23:35 +0900</pubDate>
+      
+      <guid>/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spark</title>
+      <link>/tags/spark/</link>
+      <pubDate>Mon, 31 Jul 2017 11:59:47 +0900</pubDate>
+      
+      <guid>/tags/spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssh</title>
+      <link>/tags/ssh/</link>
+      <pubDate>Sun, 05 Mar 2017 12:07:16 +0900</pubDate>
+      
+      <guid>/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Storage</title>
+      <link>/tags/storage/</link>
+      <pubDate>Fri, 28 Apr 2017 23:02:33 +0900</pubDate>
+      
+      <guid>/tags/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subnet</title>
+      <link>/tags/subnet/</link>
+      <pubDate>Sat, 12 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/tags/subnet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Talkit</title>
+      <link>/tags/talkit/</link>
+      <pubDate>Wed, 29 Mar 2017 20:44:25 +0900</pubDate>
+      
+      <guid>/tags/talkit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trial Account</title>
+      <link>/tags/trial-account/</link>
+      <pubDate>Tue, 01 Aug 2017 04:20:12 +0900</pubDate>
+      
+      <guid>/tags/trial-account/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>/tags/tutorial/</link>
+      <pubDate>Sat, 12 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virtualization</title>
+      <link>/tags/virtualization/</link>
+      <pubDate>Fri, 31 Mar 2017 22:42:46 +0900</pubDate>
+      
+      <guid>/tags/virtualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vm</title>
+      <link>/tags/vm/</link>
+      <pubDate>Sun, 05 Mar 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/tags/vm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webinar</title>
+      <link>/tags/webinar/</link>
+      <pubDate>Wed, 29 Mar 2017 20:44:25 +0900</pubDate>
+      
+      <guid>/tags/webinar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Window</title>
+      <link>/tags/window/</link>
+      <pubDate>Fri, 31 Mar 2017 22:42:46 +0900</pubDate>
+      
+      <guid>/tags/window/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>작성중</title>
+      <link>/tags/%EC%9E%91%EC%84%B1%EC%A4%91/</link>
+      <pubDate>Sat, 12 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/tags/%EC%9E%91%EC%84%B1%EC%A4%91/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on sev02-Oracle Cloud 블로그</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Aug 2017 04:20:12 +0900</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Account</title>
+      <link>/categories/account/</link>
+      <pubDate>Tue, 01 Aug 2017 04:20:12 +0900</pubDate>
+      
+      <guid>/categories/account/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Api Developerment</title>
+      <link>/categories/api-developerment/</link>
+      <pubDate>Wed, 23 Aug 2017 21:00:00 +0900</pubDate>
+      
+      <guid>/categories/api-developerment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bdcsce</title>
+      <link>/categories/bdcsce/</link>
+      <pubDate>Mon, 31 Jul 2017 11:59:47 +0900</pubDate>
+      
+      <guid>/categories/bdcsce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Big Data</title>
+      <link>/categories/big-data/</link>
+      <pubDate>Mon, 14 Aug 2017 23:20:25 +0900</pubDate>
+      
+      <guid>/categories/big-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>/categories/cloud/</link>
+      <pubDate>Tue, 02 May 2017 11:59:47 +0900</pubDate>
+      
+      <guid>/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Compute</title>
+      <link>/categories/compute/</link>
+      <pubDate>Thu, 04 May 2017 13:23:35 +0900</pubDate>
+      
+      <guid>/categories/compute/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Container</title>
+      <link>/categories/container/</link>
+      <pubDate>Mon, 24 Apr 2017 19:34:26 +0900</pubDate>
+      
+      <guid>/categories/container/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Management</title>
+      <link>/categories/data-management/</link>
+      <pubDate>Wed, 10 May 2017 16:20:58 +0900</pubDate>
+      
+      <guid>/categories/data-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database Cloud</title>
+      <link>/categories/database-cloud/</link>
+      <pubDate>Thu, 04 May 2017 17:17:35 +0900</pubDate>
+      
+      <guid>/categories/database-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>/categories/docker/</link>
+      <pubDate>Mon, 24 Apr 2017 19:34:26 +0900</pubDate>
+      
+      <guid>/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Event</title>
+      <link>/categories/event/</link>
+      <pubDate>Sun, 27 Aug 2017 08:54:32 +0900</pubDate>
+      
+      <guid>/categories/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iaas</title>
+      <link>/categories/iaas/</link>
+      <pubDate>Sat, 12 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/categories/iaas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>/categories/mysql/</link>
+      <pubDate>Wed, 10 May 2017 15:48:24 +0900</pubDate>
+      
+      <guid>/categories/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle</title>
+      <link>/categories/oracle/</link>
+      <pubDate>Wed, 05 Apr 2017 11:23:40 +0900</pubDate>
+      
+      <guid>/categories/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle Cloud</title>
+      <link>/categories/oracle-cloud/</link>
+      <pubDate>Sat, 26 Aug 2017 08:54:32 +0900</pubDate>
+      
+      <guid>/categories/oracle-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle Management Cloud</title>
+      <link>/categories/oracle-management-cloud/</link>
+      <pubDate>Fri, 21 Apr 2017 10:31:26 +0900</pubDate>
+      
+      <guid>/categories/oracle-management-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paas</title>
+      <link>/categories/paas/</link>
+      <pubDate>Sun, 06 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/categories/paas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ravello</title>
+      <link>/categories/ravello/</link>
+      <pubDate>Sat, 15 Apr 2017 16:05:59 +0900</pubDate>
+      
+      <guid>/categories/ravello/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Storage</title>
+      <link>/categories/storage/</link>
+      <pubDate>Fri, 28 Apr 2017 23:02:33 +0900</pubDate>
+      
+      <guid>/categories/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webinar</title>
+      <link>/categories/webinar/</link>
+      <pubDate>Wed, 29 Mar 2017 20:44:25 +0900</pubDate>
+      
+      <guid>/categories/webinar/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

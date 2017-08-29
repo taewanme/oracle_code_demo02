@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Visualization on sev02-Oracle Cloud 블로그</title>
+    <link>/tags/data-visualization/</link>
+    <description>Recent content in Data Visualization on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 May 2017 15:00:47 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>쉽게 따라해보는 데이터 시각화 제2회 &#39;데이터 연결&#39;</title>
+      <link>/post/dvcs002/</link>
+      <pubDate>Mon, 15 May 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/post/dvcs002/</guid>
+      <description>데이터 시각화를 위해서 가장 먼저 해야 할 작업은 &amp;lsquo;분석에 사용할 데이터의 연결&amp;rsquo;입니다.
+ODV(Oracle Data Visualization)는 데이터 시각화를 위해서 다양한 File, RDB, Hadoop 등 데이터소스를 지원하고 있으며, 분석가능한 데이터소스를 계속적으로 추가하고 있습니다. 현재까지 지원되고있는 데이터소스는 다음과 같습니다.
+ Amazon Redshift Apache Hadoop Hive Cloudera Hadoop Hive Cloudera Impala Dropbox Greenplum Google Analytics Hortonworks Hadoop Hive IBM DB2 Impala Informix Microsoft Excel Microsoft SQL Server MongoDB MySQL Netezza Oracle SaaS Application Oracle Database Oracle Essbase Salesforce SAP SybaseIQ Spark Teradata  데이터소스 선택 데이터소스의 접속을 위해서, 먼저 DVD(Data Visualization Desktop) 상단의 &amp;lsquo;데이터소스&amp;rsquo;메뉴을 클릭합니다.</description>
+    </item>
+    
+    <item>
+      <title>쉽게 따라해보는 데이터 시각화 제1회 &#39;실습환경 구성&#39;</title>
+      <link>/post/dvcs001/</link>
+      <pubDate>Wed, 26 Apr 2017 15:00:47 +0900</pubDate>
+      
+      <guid>/post/dvcs001/</guid>
+      <description>데이터 분석은 대시보드와 레포팅으로 분류되는 Business Intelligence(BI)영역과 데이터탐색으로 분류되는 Data Discovery 영역으로 나뉘어 집니다.
+최근에 각광받고 있는 분석 영역이 Data Discovery 분야인데, 가트너(2016)도 Data Discovery, Self-Service, Cloud를 New BA(Business Analytics)로 정의한 바 있습니다. 실제로 Tableau, 클릭뷰 등과 같은 New BA쪽에 강점을 갖고 있는 분석툴이 고객으로 부터 많은 관심을 받으며 분석 소프트웨어 시장을 리딩하고 있습니다.
+그리고 이와 같은 New BA를 지향하는 분석툴은 &amp;lsquo;손쉽데 데이터를 시각화할 수 있다&amp;rsquo;는 특징을 가지고 있습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

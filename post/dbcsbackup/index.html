@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<META http-equiv="Expires" content="-1">
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Cache-Control" content="No-Cache">
+
+<title>데이타베이스 클라우드 서비스 인스턴스에서 백업 구성</title>
+<meta name="description" content="오라클 클라우드 기술 블로그">
+<meta name="generator" content="Hugo 0.25.1" />
+<meta property="og:title" content="데이타베이스 클라우드 서비스 인스턴스에서 백업 구성" />
+<meta property="og:description" content="데이타베이스 클라우드 서비스 환경에서 기본으로 구성되는 백업 방법에 대해서 먼저 소개한 후 기본 구성을 변경하는 방법에 대해서 소개합니다" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/dbcsbackup/" />
+
+
+
+<meta property="article:published_time" content="2017-05-10T16:20:58&#43;09:00"/>
+<meta property="article:modified_time" content="2017-05-10T16:20:58&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/minsu.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/hybrid.css" type="text/css" media="all" />
+<script type="text/javascript" src="/js/scripts.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="/img/icon/oracle.png" />
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=bsh&amp;skin=sons-of-obsidian"></script>
+
+
+
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="/" title="sev02-Oracle Cloud 블로그" rel="home">
+						<h1 class="logo__title">sev02-Oracle Cloud 블로그</h1>
+						<h2 class="logo__tagline">Oracle Cloud 블로그</h2>
+					</a>
+				</div>
+			</div>
+			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+		<li class="menu__item "><a class="menu__link" href="/" title="블로그 메인 페이지 " >HOME</a></li>
+		<li class="menu__item "><a class="menu__link" href="/oraclooud/" title="oracloud.kr을 소개합니다. " >ORACLOUD.KR 소개</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-iaas/" title="IaaS 서비스 관련 문서를 정리하는 페이지입니다." >IAAS 서비스</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-paas/" title="PaaS 서비스 관련 문서를 정리하는 페이지입니다." >PAAS 서비스</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc_news/" title="" >ORACLE CLOUD 새소식</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-terminology/" title="오라클 클라우드에서 각 서비스에서 사용하는 용어의 정의를 정리합니다." >OPC 용어사전</a></li>
+		<li class="menu__item "><a class="menu__link" href="https://gitter.im/oracloud-korea-user-group/Lobby" title="채팅룸으로 이동합니다."target='_blank' >오라클 클라우드 채팅룸</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+
+<div class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">데이타베이스 클라우드 서비스 인스턴스에서 백업 구성</h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2017-05-10 16:20:58 &#43;0900 KST">May 10, 2017</time>
+				<span class="post__meta-categories meta-categories">
+					<svg class="icon icon-category" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+					<a class="meta-categories__link" href="/categories/data-management" rel="category">data management</a></span>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p>본 문서에서는 데이타베이스 클라우드 서비스 환경에서 기본으로 구성되는 백업 구성에 대해서 소개하고 해당 구성을 변경하는 방법에 대해서 소개합니다.
+데이타베이스 클라우드 서비스는 기본으로 데이타베이스, 데이타베이스 및 그리드 인프라스트럭처(RAC 구성시) 관련 구성 파일, 시스템 및 클라우드 Tooling 관련 파일에 대한 백업을 수행할 수 있는 기능을 지원합니다. 이러한 백업 기능을 지원하기 위해서 시스템 유틸리티, 오라클 데이타베이스 유틸리티, 오라클 데이타베이스 백업 서비스를 활용하며 이 모든 서비스는 인스턴스 생성시 자동으로 설치됩니다.</p>
+
+<p>오라클 데이타베이스 백업 서비스에 대한 상세 정보는 <a href="/post/obcs/">이곳</a>를 참고하십시오.</p>
+
+<h2 id="기본-백업-구성">기본 백업 구성</h2>
+
+<h3 id="인스턴스-생성시의-백업-구성-선택">인스턴스 생성시의 백업 구성 선택</h3>
+
+<p>인스턴스 생성시 백업 대상으로 &ldquo;<strong>클라우드 저장 영역과 로컬 저장</strong>&rdquo;, &ldquo;<strong>클라우드 저장 영역만</strong>&rdquo;, &ldquo;<strong>없음</strong>&rdquo;  중 한 가지를 선택할 수 있습니다. <strong>클라우드 저장 영역</strong> 은 데이타베이스 백업 서비스에 저장하고 <strong>로컬 저장</strong> 시에는 데이타베이스 인스턴스가 사용하는 블록 스토리지에 내부적으로 저장됩니다. 백업이 저장되는 스토리지 볼륨의 이름은 &ldquo;<strong>fra</strong>&rdquo; 입니다. <strong>fra</strong> 영역은 &ldquo;<strong>클라우드 저장 영역과 로컬 저장</strong>&rdquo; 선택시에는 &ldquo;<strong>사용가능한 데이타베이스 저장 영역</strong>&rdquo; 의 1.7 배의 사이즈로, 그 이외의 경우에는 0.1 배 (최소 7GB)의 사이즈로 생성됩니다.</p>
+
+<blockquote>
+<p>데이타베이스 자체가 저장되는 스토리지 볼륨은 &ldquo;<strong>data</strong>&rdquo; 로 &ldquo;<strong>사용가능한 데이타베이스 저장 영역</strong>&rdquo; 에 입력한 값과 같은 사이즈로  생성됩니다.</p>
+</blockquote>
+
+<p>그림 1은 인스턴스 생성시 백업 구성을 선택하는 화면으로 아래 표를 참고하여 맞는 값을 입력하여 주시면 됩니다.</p>
+
+<ul>
+<li>그림 1. 인스턴스 생성시 백업 구성을 입력하는 화면
+<img src="https://oracloud-kr-teamrepo.github.io/2017/05/dbcs_backup/dbcs-creation1.PNG" alt="" /></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>입력값</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>클라우드 저장 영역 컨테이너</td>
+<td>Storage-&ldquo;Identity Domain&rdquo;/&ldquo;컨테이너 이름&rdquo;</td>
+</tr>
+
+<tr>
+<td>클라우드 저장 영역 사용자 이름</td>
+<td>데이타베이스 백업 클라우드 로그인 계정</td>
+</tr>
+
+<tr>
+<td>클라우드 저장 영역 비밀번호</td>
+<td>데이타베이스 백업 클라우드 로그인계정 패스워드</td>
+</tr>
+
+<tr>
+<td>클라우드 저장 영역 컨테이너 생성</td>
+<td>백업시 새로운 컨테이너 사용을 원하는 경우 선택</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="백업-구성-및-이력-확인">백업 구성 및 이력 확인</h3>
+
+<p>데이타베이스 콘솔에서 인스턴스를 선택하여 상세 정보 확인시 백업 구성에 대한 정보를 확인할 수 있습니다.</p>
+
+<ul>
+<li>그림 2. 인스턴스에 대한 상세 정보 확인 화면
+<img src="https://oracloud-kr-teamrepo.github.io/2017/05/dbcs_backup/DBCS-status.PNG" alt="" /></li>
+</ul>
+
+<p>&ldquo;<strong>관리</strong>&rdquo; 를 클릭하면 현재시점까지 백업된 정보에 대한 이력 확인이 가능하고 원하는 백업으로 바로 복구할 수 있습니다. 복구시에는 원하는 백업 옆의 리스트 아이콘을 클릭하고 <code>Recover</code> 를 선택하시면 됩니다.</p>
+
+<ul>
+<li>그림 3. 백업에 대한 이력 확인 등 백업 관련 화면
+<img src="https://oracloud-kr-teamrepo.github.io/2017/05/dbcs_backup/backup-history.PNG" alt="" /></li>
+</ul>
+
+<p>언제든지 그림 3의 <code>Backup Now</code>를 클릭하여 원하는 시점에 매뉴얼 백업을 수행하실 수 있습니다.</p>
+
+<h3 id="기본-백업-구성에-대한-상세-설명">기본 백업 구성에 대한 상세 설명</h3>
+
+<p>기본 백업 구성은 오라클 베스트 프랙티스 가이드라인을 따라서 설정되어 있습니다.</p>
+
+<ul>
+<li>데이타베이스의 경우 RMAN 유틸리티를 사용하여 백업합니다. 기본 백업 정책은 주단위 전체 백업(Full Backup, 레벨 0 백업), 일단위 증분 백업(Incremental backup, 레벨 1 백업)으로 클라우드 스토리지는 30일 데이타가 보관되고 로컬 스토리지에는 7일 데이타가 보관됩니다.</li>
+<li>데이타베이스 및 시스템 구성 파일은 백업 수행시 같이 백업됩니다.</li>
+<li>매일 11시 (23:00)에서 3시 (03:00) 사이의 시간에 자동 백업이 수행되며 데이터베이스 생성시 설정됩니다. 백업 시간은 변경 가능하며 변경 방법에 대해서는 뒤에서 설명드리겠습니다.</li>
+<li>백업 보관주기는 &ldquo;<strong>클라우드 저장 영역과 로컬 저장</strong>&ldquo;시에는 30일로 로컬 스토리지에 최근 7 일간의 백업이 저장됩니다. <strong>클라우드 저장 영역</strong> 시도 30일로 같습니다.</li>
+<li>클라우드 저장 영역에 대한 저장되는 모든 백업은 암호화됩니다. 로컬 스토리지의 경우 Enterprise Edition 선택시에만 암호화되고 Standard Edition 의 경우 암호화되지 않습니다.</li>
+<li>아카이브는 기본으로 구성되어 아카이브 파일은 한 시간에 두 번씩 백업됩니다.</li>
+</ul>
+
+<h2 id="백업-구성-변경">백업 구성 변경</h2>
+
+<h3 id="백업-시간-및-아카이브-백업-주기-변경">백업 시간 및 아카이브 백업 주기 변경</h3>
+
+<p>데이타베이스 클라우드 서비스의 백업 기능은 정기적인 수행을 위해서 <strong>cron</strong> 스케줄링을 사용합니다. 다음은 /etc/crontab의 내용으로 데이타베이스 파일 백업은 매일 2:55에 수행되고, 아카이브 로그 백업은 매시 0분, 30분에 수행됩니다.</p>
+
+<pre class="prettyprint">
+55 2 * * * root /var/opt/oracle/bkup_api/bkup_api bkup_start --dbname=ORCL
+0,30 * * * * root /var/opt/oracle/bkup_api/bkup_api bkup_archlogs --dbname=ORCL
+15 03 * * 6 oracle /var/opt/oracle/cleandb/cleandblogs.pl
+</pre>
+
+<p>해당 구성을 변경함으로써 기본 백업 시간 및 아카이브 백업 주기를 변경할 수 있습니다.</p>
+
+<h3 id="백업-보관-주기-변경">백업 보관 주기 변경</h3>
+
+<p><strong>opc</strong> 사용자로 로그인 한 후 root 권한으로 아래 명령어를 수행합니다. 백업에 대한 보관주기 변경시에는 rman 유틸리티를 사용하지 않아야 합니다.</p>
+
+<pre class="prettyprint">
+$ sudo -s
+# /var/opt/oracle/bkup_api/bkup_api bkup_chgcfg --retention=days
+</pre>
+
+<h3 id="백업-대상-파일-확인-및-추가-변경">백업 대상 파일 확인 및 추가/변경</h3>
+
+<p>백업 대상 시스템 파일은 <strong>/home/oracle/bkup/oscfg.spec</strong> 에서, 데이타베이스 설정 파일은 <strong>/home/oracle/bkup/dbcfg.spec</strong> 에서 확인가능합니다. 백업 대상 파일을 추가하고자 하는 경우에는 위에서 나열된 파일 이름을 변경하면 됩니다.</p>
+
+<h3 id="데이타베이스-백업-관련-구성-확인-변경">데이타베이스 백업 관련 구성 확인/변경</h3>
+
+<p>데이타베이스 백업 관련 구성은 <strong>oracle</strong> 사용자로 로그인한 후 RMAN 명령어를 통해서 관련 설정을 확인하실 수 있습니다. 설정을 변경하고자 하는 경우에는 RMAN 명령얼르 사용합니다. <strong>show all</strong>  명령어 수행시 현재 구성이 표시됩니다.</p>
+
+<pre class="prettyprint">
+$ rman target =/
+   ...
+   RMAN > show all
+</pre>
+
+<h2 id="마치며">마치며</h2>
+
+<p>이제까지 데이타베이스 클라우드 서비스의 기본 백업 구성 방법을 살펴보고 기본 구성을 변경하는 방법에 대해서 살펴보았습니다. 사용자가 직접 백업 환경을 구성하고 관리해야 했던 On-Premise 환경 대비, 데이타베이스 클라우드 서비스 환경에서는 필요한 구성이 기본으로 설정되고 관리되기 때문에 훨신 더 편하게 백업을 구성하시고 관리하실 수 있으실 것입니다.</p>
+
+<p>더 자세한 정보는 아래의 사이트를 확인바랍니다.</p>
+
+<p><a href="https://cloud.oracle.com/en_US/database">https://cloud.oracle.com/en_US/database</a> <br />
+<a href="https://cloud.oracle.com/en_US/database-backup">https://cloud.oracle.com/en_US/database-backup</a> <br />
+<a href="http://docs.oracle.com/en/cloud/paas/database-dbaas-cloud/books.html">http://docs.oracle.com/en/cloud/paas/database-dbaas-cloud/books.html</a></p>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m4.73135 3.3795002q0-.5597-.39604-.9557-.39604-.3961-.95577-.3961-.55974 0-.95578.3961-.39604.396-.39604.9557 0 .5598.39604.9558.39604.3961.95578.3961.55973 0 .95577-.3961.39604-.396.39604-.9558zm11.26865 6.0832q0 .5596998-.39076.9504998l-5.18548 5.196q-.41188.3908-.9610504.3908-.55974 0-.9505-.3908l-7.5511496-7.5616998q-.40132-.3907-.68119-1.0666-.27987-.6759-.27987-1.2357v-4.3934q0-.54920004.40132-.95050004.40132-.4013.9505-.4013h4.39339q.55974 0 1.23565.2799.67591.2798 1.07723.6812l7.55115 7.54060004q.39076.4118.39076.961z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link" href="/tags/database/" rel="tag">database</a></li>
+		<li class="tags__item"><a class="tags__link" href="/tags/data-management/" rel="tag">data management</a></li>
+		<li class="tags__item"><a class="tags__link" href="/tags/dbcs/" rel="tag">DBCS</a></li>
+		<li class="tags__item"><a class="tags__link" href="/tags/backup/" rel="tag">backup</a></li>
+	</ul>
+</div>
+
+	</article>
+	
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="강지선 avatar" src="/img/author/jisun.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">작성자: 강지선</span>
+	</div>
+	<div class="authorbox__description">
+		한국 오라클의 클라우드 세일즈 컨설팅 팀 소속입니다. 클라우드, 가상화, 네트워크, 빅데이터에 관심을 갖고 있습니다. 
+	</div>
+	<div class="authorbox__description">
+		E-mail: oracloud.kr@gmail.com
+	</div>
+</div>
+
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/post/mysql_cs/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">Oracle MySQL Cloud Service</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="/post/dvcs002/" rel="next"><span class="post-nav__caption">Next»</span><p class="post-nav__post-title">쉽게 따라해보는 데이터 시각화 제2회 &#39;데이터 연결&#39;</p></a>
+	</div>
+</nav>
+
+	
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://oracloud-kr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="//google.com/search">
+		<label>
+			<span class="screen-reader-text">Search for:</span>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="/" />
+	</form>
+</div>
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">ToC (목차)</h4>
+	<div class="widget__content">
+	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#기본-백업-구성">기본 백업 구성</a>
+<ul>
+<li><a href="#인스턴스-생성시의-백업-구성-선택">인스턴스 생성시의 백업 구성 선택</a></li>
+<li><a href="#백업-구성-및-이력-확인">백업 구성 및 이력 확인</a></li>
+<li><a href="#기본-백업-구성에-대한-상세-설명">기본 백업 구성에 대한 상세 설명</a></li>
+</ul></li>
+<li><a href="#백업-구성-변경">백업 구성 변경</a>
+<ul>
+<li><a href="#백업-시간-및-아카이브-백업-주기-변경">백업 시간 및 아카이브 백업 주기 변경</a></li>
+<li><a href="#백업-보관-주기-변경">백업 보관 주기 변경</a></li>
+<li><a href="#백업-대상-파일-확인-및-추가-변경">백업 대상 파일 확인 및 추가/변경</a></li>
+<li><a href="#데이타베이스-백업-관련-구성-확인-변경">데이타베이스 백업 관련 구성 확인/변경</a></li>
+</ul></li>
+<li><a href="#마치며">마치며</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">최신글</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/post/oracle_code/" title="Oracle Code in Seoul">
+							Oracle Code in Seoul</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/oracle_cloud_reg/" title="Oracle Cloud Trial 신청: $300 Credit">
+							Oracle Cloud Trial 신청: $300 Credit</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/api_catalog_cs_overview/" title="Oracle API Catalog Cloud Service 소개">
+							Oracle API Catalog Cloud Service 소개</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/oracloud_patch/" title="Oracle Cloud의 PaaS 서비스 패치: Orace BDCSCE">
+							Oracle Cloud의 PaaS 서비스 패치: Orace BDCSCE</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/oracle_fact/" title="한국 오라클 마케팅: 한국 오라클 팩트 체크">
+							한국 오라클 마케팅: 한국 오라클 팩트 체크</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/kafka_paas_eventhub_cs/" title="Apache Kafka PaaS: Oracle Event Hub CS 소개..">
+							Apache Kafka PaaS: Oracle Event Hub ......</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/subnet_in_oracle_cloud/" title="오라클 클라우드 네트워크 - 서브넷 구성">
+							오라클 클라우드 네트워크 - 서브넷 구성</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/identity_domain/" title="Identity Domain">
+							Identity Domain</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/installing_pms/" title="Oracle PaaS Service Manager 소개 및 설치">
+							Oracle PaaS Service Manager 소개 및 설치</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/changing_trial_account/" title="Oracle Cloud 트라이얼 계정 지원 방식 변경">
+							Oracle Cloud 트라이얼 계정 지원 방식 변경</a>
+		  </li>
+		</ul>
+	</div>
+</div>
+
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">카테고리</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/account">Account</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/api-developerment">Api-Developerment</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/bdcsce">Bdcsce</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/big-data">Big-Data</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/cloud">Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/compute">Compute</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/container">Container</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/data-management">Data-Management</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/database-cloud">Database-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/docker">Docker</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/event">Event</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/iaas">Iaas</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/mysql">Mysql</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle">Oracle</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle-cloud">Oracle-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle-management-cloud">Oracle-Management-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/paas">Paas</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/ravello">Ravello</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/storage">Storage</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/webinar">Webinar</a></li>
+		</ul>
+	</div>
+</div>
+
+	﻿
+<div class="widget-taglist widget">
+	<h4 class="widget__title">태그</h4>
+	<div class="widget__content">
+		<a class="widget__link widget__link--taglist" href="/tags/acc" title="acc">acc (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/analytics" title="analytics">analytics (3)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/api" title="api">api (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/api-catalog" title="api-catalog">api-catalog (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/automation" title="automation">automation (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/backup" title="backup">backup (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/bdcsce" title="bdcsce">bdcsce (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/bdpcs" title="bdpcs">bdpcs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/big-data" title="big-data">big-data (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/bmcs" title="bmcs">bmcs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/cloud" title="cloud">cloud (14)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/compute" title="compute">compute (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/compute-cs" title="compute-cs">compute-cs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/container" title="container">container (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/data-management" title="data-management">data-management (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/data-visualization" title="data-visualization">data-visualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/database" title="database">database (3)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/database-backup" title="database-backup">database-backup (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/dbcs" title="dbcs">dbcs (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/desktop" title="desktop">desktop (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/devops" title="devops">devops (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/docker" title="docker">docker (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/event-hub" title="event-hub">event-hub (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/hadoop" title="hadoop">hadoop (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/iaas" title="iaas">iaas (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/iac" title="iac">iac (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/identity-domain" title="identity-domain">identity-domain (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/integration" title="integration">integration (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/ip-networks" title="ip-networks">ip-networks (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/kafka" title="kafka">kafka (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/management" title="management">management (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/monitoring" title="monitoring">monitoring (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/mysql" title="mysql">mysql (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/nested-virtualization" title="nested-virtualization">nested-virtualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/network" title="network">network (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/object-storage" title="object-storage">object-storage (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/occs" title="occs">occs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/omc" title="omc">omc (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle" title="oracle">oracle (7)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle-bdcsce" title="oracle-bdcsce">oracle-bdcsce (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle-cloud" title="oracle-cloud">oracle-cloud (8)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle-code" title="oracle-code">oracle-code (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/paas" title="paas">paas (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/patch" title="patch">patch (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/psm" title="psm">psm (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/ravello" title="ravello">ravello (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/security" title="security">security (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/spark" title="spark">spark (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/ssh" title="ssh">ssh (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/storage" title="storage">storage (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/subnet" title="subnet">subnet (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/talkit" title="talkit">talkit (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/trial-account" title="trial-account">trial-account (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/tutorial" title="tutorial">tutorial (5)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/virtualization" title="virtualization">virtualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/vm" title="vm">vm (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/webinar" title="webinar">webinar (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/window" title="window">window (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/%ec%9e%91%ec%84%b1%ec%a4%91" title="작성중">작성중 (1)</a>
+	</div>
+</div>
+
+	<div class="widget-categories widget">
+	<h4 class="widget__title">SNS(Social Network Service)</h4>
+	<div class="widget__content">
+		<a href="https://github.com/oracloud-kr-team" target="_blank" title="github"><img src="/img/icon/github.png" width="50px" height="50px"/></a>
+		<a href="https://www.slideshare.net/ssusercda07e" target="_blank" title="slideshare"><img src="/img/icon/slideshare.png" width="50px" height="50px"/></a>
+		<a href="https://www.youtube.com/channel/UCboJr3TLlqeDqpBURRdb_lg" target="_blank" title="youtube"><img src="/img/icon/youtube.png" width="50px" height="50px"/></a>
+		<a href="mailto:oracloud.kr@gmail.com" title="email"><img src="/img/icon/email.png" width="50px" height="50px"/></a>
+	</div>
+</div>
+
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">오라클 클라우드 관련 사이트</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="http://cloud.oracle.com/">
+				Oracle Public Cloud 홈페이지</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="http://developer.oracle.com/">
+				Oracle Developers</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="http://docs.oracle.com/en/cloud/">
+				오라클 클라우드 공식 문서</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="https://apexapps.oracle.com/pls/apex/f?p=44785">
+				Oracle Learning Library(실습강좌)</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.youtube.com/watch?v=28PWeD_w9zA&list=PL_lN0QYuCPSFimWrf4FpnaGAXzcBJLN7i">
+				ORA 클라우드 지식먹방(Youtube 채널-한국어)</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="http://post.naver.com/odpkorea">
+				Oracle Digital Prime(한글)</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+	
+	<div class="widget-categories widget">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51xzzorci1s&amp;m=6&amp;c=ff0000&amp;cr1=ffffff&amp;br=6&amp;oo=3&amp;sx=0" async="async"></script>
+</div>
+
+</aside>
+
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2017 sev02-Oracle Cloud 블로그. </p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

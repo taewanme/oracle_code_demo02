@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Event on sev02-Oracle Cloud 블로그</title>
+    <link>/categories/event/</link>
+    <description>Recent content in Event on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Aug 2017 08:54:32 +0900</lastBuildDate>
+    
+	<atom:link href="/categories/event/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Oracle Code in Seoul</title>
+      <link>/post/oracle_code/</link>
+      <pubDate>Sun, 27 Aug 2017 08:54:32 +0900</pubDate>
+      
+      <guid>/post/oracle_code/</guid>
+      <description>오라클의 개발자 컨퍼런스인 Oracle Code가 2017년 8월 30일 서울에서 진행됩니다. 글로벌 20개 도시 로드쇼 중 마지막 피날레를 서울에서 장식합니다. Kevin Walsh(Oracle R&amp;amp;D SVP), Sebastian Daschner(Java Champion), Toby Lee(KSUG 설립자) 등 Guru 개발자가 기조연설을 합니다. 키노트 4개, 3개 트랙/18개 Break-out 세션, 4개 데모 및 IOT 워크샵 @ Oracle Lounge, 2개 Hands-on Lab으로 구성됩니다.
+
+모든 세션은 Youtube로 생중계될 예정입니다.
+.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on sev02-Oracle Cloud 블로그</title>
+    <link>/tags/tutorial/</link>
+    <description>Recent content in Tutorial on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Aug 2017 22:20:25 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>오라클 클라우드 네트워크 - 서브넷 구성</title>
+      <link>/post/subnet_in_oracle_cloud/</link>
+      <pubDate>Sat, 12 Aug 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/post/subnet_in_oracle_cloud/</guid>
+      <description>Oracle Cloud는 2016년 10월에 서브넷을 구성하는 기능을 추가했습니다.1 Oracle Cloud의 Identity Domain에 여러 서브넷을 구성하고 관리할 수 있습니다. Oracle Cloud에서는 서브넷을 구성할 때 사설 IP 주소(Prevate IP Address)이 관리 방식이 달라집니다. 사설 IP 주소를 오라클 클라우드의 공통 풀(common pool)에서 관리하는 방식이 Shared Network입니다. Subnet에 할당된 사설 IP 주소를 Identity domain에서 관리하는 방식이 IP Networks입니다. 본 문서에서는 IP Networks를 이용하여 서브넷을 구성하는 방법을 소개하겠습니다.
+Terminology: 용어 정리 본 문서에서는 다음과 같은 오라클 클라우드 용어를 사용하며, 의미는 다음과 같습니다.</description>
+    </item>
+    
+    <item>
+      <title>Oracle Container CS에 Docker 이미지 배포</title>
+      <link>/post/occs_new_docker_container/</link>
+      <pubDate>Mon, 24 Apr 2017 19:34:26 +0900</pubDate>
+      
+      <guid>/post/occs_new_docker_container/</guid>
+      <description>Oracle Container Cloud Service(이하 OCCS)는 오라클 클라우드가 제공하는 Docker 서비스입니다. OCCS에는 Kubernetes(k8s), docker-swarm 그리고 marathon 과 유사한 container orchestration 도구가 포함되어 있습니다. Docker를 운영환경에 적용하기 위해서는 Container orchestration 도구를 반드시 사용해야 합니다. Kubernetes나 docker-swarm 등을 직접 설치하고 운영할 경우에 관리 부담이 증가하고, Container orchestration을 운영하기 위한 노하우와 연구가 필요합니다. OCCS를 통해서 이러한 Container orchestration의 어려움을 해결할 수 있습니다. 또한 Docker 인프라 운영의 기술적 &amp;amp; 관리적 문제를 상당 부분 해결할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Oracle Container CS 인스턴스 생성</title>
+      <link>/post/occs-new-inst/</link>
+      <pubDate>Thu, 20 Apr 2017 19:36:38 +0900</pubDate>
+      
+      <guid>/post/occs-new-inst/</guid>
+      <description>Oracle Cloud는 Docker 기반의 컨테이너 서비스를 2016년 11월에 출시하였습니다. 오라클은 2015년 11월에 StackEngine을 인수하였습니다. (관련 공지). StackEngine사는 2014년 텍사스 오스틴 주에서 설립된 업체로, 엔터프라이즈급 컨테이너 관리 및 자동화 솔루션 개발 업체입니다. StackEngine은 kubernetes(k8s), docker-swarm 그리고 marathon과 같은 container orchestration 도구입니다.
+오라클은 2015년 11월에 StackEngine을 인수한 후, 1년 동안 Oracle Public Cloud에 StackEngine을 통합하였습니다. 이 결과물이 Oracle Container Cloud Service 입니다.
+Oracle Container Clod Service를 통해서 Docker 컨테이너의 클러스터 구성, 인스턴스 배포 및 운영, 모니터링을 효과적으로 할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>오라클 클라우드에서 window VM 인스턴스 생성</title>
+      <link>/post/win-vm/</link>
+      <pubDate>Fri, 31 Mar 2017 22:42:46 +0900</pubDate>
+      
+      <guid>/post/win-vm/</guid>
+      <description>오라클 클라우드(Oracle Public Cloud, OPC)의 Compute 서비스에서 Window VM 인스턴스를 생성하는 절차를 정리합니다. 오라클 클라우드에서 가상머신을 생성하기 위해서는 Oracle Cloud 계정이 필요합니다. 현재 OPC 계정이 없다면 &amp;ldquo;오라클 클라우드 계정 생성하기&amp;rdquo;를 먼저 확인하시기 바랍니다.
+Oracle Cloud VM 인스턴스 생성 실습 본 문서는 OS X(Mac) 환경에서 작성되었습니다. 이 문서의 실습에 있어서 윈도우와 &amp;ldquo;OS X&amp;rdquo;의 차이는 거의 없습니다. Window VM을 생성한 후, RDP로 Window VM에 접속하는 부분만 차이가 있습니다. 이 부분은 Window와 &amp;ldquo;OS X&amp;rdquo;를 구분하여 작성했습니다.</description>
+    </item>
+    
+    <item>
+      <title>오라클 IaaS를 이용한 VM 인스턴스 생성</title>
+      <link>/post/iaas_vm/</link>
+      <pubDate>Sun, 05 Mar 2017 22:20:25 +0900</pubDate>
+      
+      <guid>/post/iaas_vm/</guid>
+      <description>오라클 클라우드의 IaaS 서비스에서 Ubuntu 14.04를 VM 인스턴스로 만드는 절차를 정리합니다. 오라클 클라우드에서 가상머신을 생성하기 위해서는 Oracle Cloud의 계정이 필요합니다. 계정을 생성하는 방법에 대해서는 &amp;ldquo;오라클 클라우드 계정 생성하기&amp;rdquo; 를 참조하시기 바랍니다.
+Oracle Cloud VM 인스턴스 생성 실습 본 문서는 OS X(Mac) 환경에서 작성되었습니다. 이 문서를 윈도우에서 실습하실 경우에는 PUTTY와 같은 Terminal을 사용하는 부분과 SSH-KEYGEN 을 사용하는 절차가 달라질 것입니다. 이 부분에 대해서는 별도 문서로 정리하겠습니다.
+오라클 클라우드 VM 생성 실습은 약 10~15분 정도 소요됩니다.</description>
+    </item>
+    
+  </channel>
+</rss>

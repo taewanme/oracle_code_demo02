@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<META http-equiv="Expires" content="-1">
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Cache-Control" content="No-Cache">
+
+<title>클라우드를 이용한 차세대 인프라 운영관리 방안</title>
+<meta name="description" content="오라클 클라우드 기술 블로그">
+<meta name="generator" content="Hugo 0.25.1" />
+<meta property="og:title" content="클라우드를 이용한 차세대 인프라 운영관리 방안" />
+<meta property="og:description" content="OMC : 클라우드를 이용한 차세대 인프라 운영관리 방안 Oracle Management Cloud Service (이하 OMC)를 통한 기존 On-Premise의 인프라 운영 문제점의 해결 방법과 차세대 인프라 관리 방법에 대한 방안 소개
+ 클라우드 시대 머신러닝을 포함한 IT Trend에 발맞추어 IT 운영 관리는 어떻게 발전되어야 할까요? 고객들은 어떤 어려움을 해결하고 싶어할까요? 데모를 통해 비즈니스 어플리케이션 장애를 신속하게 해결하는 방법은? 오라클의 클라우드 관리 서비스를 이용한 차세대 IT 운영 관리방법은?  OMC는 기존 개별화된 IT 조직 업무의 단위 모니터링 솔루션에 대한 비 효율성을 극복하기 위해 다양한 인프라의 많은 분석 대이터를 효율적으로 분석하며, 인프라 전반의 통합 모니터링 및 시스템의 성능 예측, 장애분석, 비정상적 행위를 탐지하는 기능을 제공합니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/omc_cloud_mgt/" />
+
+
+
+<meta property="article:published_time" content="2017-04-21T10:31:26&#43;09:00"/>
+<meta property="article:modified_time" content="2017-04-21T10:31:26&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/minsu.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/hybrid.css" type="text/css" media="all" />
+<script type="text/javascript" src="/js/scripts.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="/img/icon/oracle.png" />
+
+
+
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="/" title="sev02-Oracle Cloud 블로그" rel="home">
+						<h1 class="logo__title">sev02-Oracle Cloud 블로그</h1>
+						<h2 class="logo__tagline">Oracle Cloud 블로그</h2>
+					</a>
+				</div>
+			</div>
+			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+		<li class="menu__item "><a class="menu__link" href="/" title="블로그 메인 페이지 " >HOME</a></li>
+		<li class="menu__item "><a class="menu__link" href="/oraclooud/" title="oracloud.kr을 소개합니다. " >ORACLOUD.KR 소개</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-iaas/" title="IaaS 서비스 관련 문서를 정리하는 페이지입니다." >IAAS 서비스</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-paas/" title="PaaS 서비스 관련 문서를 정리하는 페이지입니다." >PAAS 서비스</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc_news/" title="" >ORACLE CLOUD 새소식</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-terminology/" title="오라클 클라우드에서 각 서비스에서 사용하는 용어의 정의를 정리합니다." >OPC 용어사전</a></li>
+		<li class="menu__item "><a class="menu__link" href="https://gitter.im/oracloud-korea-user-group/Lobby" title="채팅룸으로 이동합니다."target='_blank' >오라클 클라우드 채팅룸</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+
+<div class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">클라우드를 이용한 차세대 인프라 운영관리 방안</h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2017-04-21 10:31:26 &#43;0900 KST">April 21, 2017</time>
+				<span class="post__meta-categories meta-categories">
+					<svg class="icon icon-category" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+					<a class="meta-categories__link" href="/categories/oracle-management-cloud" rel="category">Oracle Management Cloud</a>, <a class="meta-categories__link" href="/categories/paas" rel="category">PaaS</a></span>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			<figure class="post__thumbnail">
+				<img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OmcDataFlow.jpg" alt="클라우드를 이용한 차세대 인프라 운영관리 방안">
+			</figure>
+			
+
+<h2 id="omc-클라우드를-이용한-차세대-인프라-운영관리-방안">OMC : 클라우드를 이용한 차세대 인프라 운영관리 방안</h2>
+
+<p>Oracle Management Cloud Service (이하 OMC)를 통한 기존 On-Premise의 인프라 운영 문제점의 해결 방법과 차세대 인프라 관리 방법에 대한 방안 소개</p>
+
+<ul>
+<li>클라우드 시대 머신러닝을 포함한 IT Trend에 발맞추어 IT 운영 관리는 어떻게 발전되어야 할까요?</li>
+<li>고객들은 어떤 어려움을 해결하고 싶어할까요?</li>
+<li>데모를 통해 비즈니스 어플리케이션 장애를 신속하게 해결하는 방법은?</li>
+<li>오라클의 클라우드 관리 서비스를 이용한 차세대 IT 운영 관리방법은?</li>
+</ul>
+
+<p>OMC는 기존 개별화된 IT 조직 업무의 단위 모니터링 솔루션에 대한 비 효율성을 극복하기 위해 다양한 인프라의 많은 분석 대이터를 효율적으로 분석하며, 인프라 전반의 통합 모니터링 및 시스템의 성능 예측, 장애분석, 비정상적 행위를 탐지하는 기능을 제공합니다.</p>
+
+<h3 id="omc의-log-및-it성능-data-수집-및-전송-방법">OMC의 log 및 IT성능 Data 수집 및 전송 방법</h3>
+
+<p><img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OmcArchitecture.jpg" alt="" />
+<center>&lt; 그림 1. Oracle Management Cloud의 Data Flow &gt;</center></p>
+
+<h3 id="1-신속한-문제-해결">1. 신속한 문제 해결</h3>
+
+<p><img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OMC1.jpg" alt="" />
+<center>&lt; 그림 2. OMC를 이용한 신속한 문제 해결 &gt;</center></p>
+
+<h3 id="2-병목-현상-예측">2. 병목 현상 예측</h3>
+
+<ul>
+<li>특정 기간의 Exadata 전체 DB의 스토리지 용량 및 메모리 사용량 모니터링</li>
+<li>Exadata Rack 전체 범위</li>
+<li>DB 노드 메모리 바인딩 현상 =&gt; 병목</li>
+<li>개별 메모리 사용량 분석을 통한 향후 사용량 예측</li>
+</ul>
+
+<p><img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OMC2.jpg" alt="" />
+<center>&lt; 그림 3. Host Resource Analytics &gt;</center></p>
+
+<h3 id="3-database-리소스-통합-분석">3. Database 리소스 통합 분석</h3>
+
+<p><img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OMC3.jpg" alt="" />
+<center>&lt; 그림 4. Database Resource Analytics &gt;</center></p>
+
+<h3 id="4-다양한-기본-데쉬보드-및-사용자-데쉬보드-제공">4. 다양한 기본 데쉬보드 및 사용자 데쉬보드 제공</h3>
+
+<p><img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OMC4.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OMC41.jpg" alt="" />
+<center>&lt; 그림 5. OMC의 다양한 기본 데쉬보드 및 사용자별 커스터마이징 데쉬보드 &gt;</center></p>
+
+<h3 id="5-특정-log-패턴-및-alert-rule-생성">5. 특정 Log 패턴 및 Alert Rule 생성</h3>
+
+<p>특정 로그 패턴 및 사용 트랜드 임계치 위반 알람 설정</p>
+
+<p><img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OMC5.jpg" alt="" />
+<center>&lt; 그림 6. OMC의 Alert Rule 설정화면 &gt;</center></p>
+
+<h3 id="6-omc-구성-예시">6. OMC 구성 예시</h3>
+
+<p><img src="https://oracloud-kr-teamrepo.github.io/2017/04/omc_cloud_mgt/OMC6.jpg" alt="" />
+<center>&lt; 그림 7. Exadata를 위한 OMC 구성 예시 &gt;</center></p>
+
+<h2 id="추가정보">추가정보</h2>
+
+<ul>
+<li><a href="http://www.oracloud.kr/post/omc/">Oracle Management Cloud(OMC) 소개</a></li>
+<li><a href="https://cloud.oracle.com/ko_KR/management">Oracle Management Cloud 홈페이지</a></li>
+<li><a href="http://docs.oracle.com/en/cloud/paas/management-cloud/index.html">OMC 공식 문서 홈페이지 - docs.oracle.com</a></li>
+</ul>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m4.73135 3.3795002q0-.5597-.39604-.9557-.39604-.3961-.95577-.3961-.55974 0-.95578.3961-.39604.396-.39604.9557 0 .5598.39604.9558.39604.3961.95578.3961.55973 0 .95577-.3961.39604-.396.39604-.9558zm11.26865 6.0832q0 .5596998-.39076.9504998l-5.18548 5.196q-.41188.3908-.9610504.3908-.55974 0-.9505-.3908l-7.5511496-7.5616998q-.40132-.3907-.68119-1.0666-.27987-.6759-.27987-1.2357v-4.3934q0-.54920004.40132-.95050004.40132-.4013.9505-.4013h4.39339q.55974 0 1.23565.2799.67591.2798 1.07723.6812l7.55115 7.54060004q.39076.4118.39076.961z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link" href="/tags/cloud/" rel="tag">CLOUD</a></li>
+		<li class="tags__item"><a class="tags__link" href="/tags/omc/" rel="tag">OMC</a></li>
+		<li class="tags__item"><a class="tags__link" href="/tags/management/" rel="tag">Management</a></li>
+	</ul>
+</div>
+
+	</article>
+	
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="홍진천 avatar" src="/img/author/jchong.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">작성자: 홍진천</span>
+	</div>
+	<div class="authorbox__description">
+		한국오라클 클라우드 세일즈 컨설팅 팀 소속입니다. 클라우드, 보안, 시스템 모니터링에 관심을 갖고 있습니다.
+	</div>
+	<div class="authorbox__description">
+		E-mail: jc.hong@oracle.com
+	</div>
+</div>
+
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/post/occs-new-inst/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">Oracle Container CS 인스턴스 생성</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="/post/omc/" rel="next"><span class="post-nav__caption">Next»</span><p class="post-nav__post-title">Oracle Management Cloud(OMC) 소개</p></a>
+	</div>
+</nav>
+
+	
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://oracloud-kr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="//google.com/search">
+		<label>
+			<span class="screen-reader-text">Search for:</span>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="/" />
+	</form>
+</div>
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">ToC (목차)</h4>
+	<div class="widget__content">
+	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#omc-클라우드를-이용한-차세대-인프라-운영관리-방안">OMC : 클라우드를 이용한 차세대 인프라 운영관리 방안</a>
+<ul>
+<li><a href="#omc의-log-및-it성능-data-수집-및-전송-방법">OMC의 log 및 IT성능 Data 수집 및 전송 방법</a></li>
+<li><a href="#1-신속한-문제-해결">1. 신속한 문제 해결</a></li>
+<li><a href="#2-병목-현상-예측">2. 병목 현상 예측</a></li>
+<li><a href="#3-database-리소스-통합-분석">3. Database 리소스 통합 분석</a></li>
+<li><a href="#4-다양한-기본-데쉬보드-및-사용자-데쉬보드-제공">4. 다양한 기본 데쉬보드 및 사용자 데쉬보드 제공</a></li>
+<li><a href="#5-특정-log-패턴-및-alert-rule-생성">5. 특정 Log 패턴 및 Alert Rule 생성</a></li>
+<li><a href="#6-omc-구성-예시">6. OMC 구성 예시</a></li>
+</ul></li>
+<li><a href="#추가정보">추가정보</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">최신글</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/post/oracle_code/" title="Oracle Code in Seoul">
+							Oracle Code in Seoul</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/oracle_cloud_reg/" title="Oracle Cloud Trial 신청: $300 Credit">
+							Oracle Cloud Trial 신청: $300 Credit</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/api_catalog_cs_overview/" title="Oracle API Catalog Cloud Service 소개">
+							Oracle API Catalog Cloud Service 소개</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/oracloud_patch/" title="Oracle Cloud의 PaaS 서비스 패치: Orace BDCSCE">
+							Oracle Cloud의 PaaS 서비스 패치: Orace BDCSCE</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/oracle_fact/" title="한국 오라클 마케팅: 한국 오라클 팩트 체크">
+							한국 오라클 마케팅: 한국 오라클 팩트 체크</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/kafka_paas_eventhub_cs/" title="Apache Kafka PaaS: Oracle Event Hub CS 소개..">
+							Apache Kafka PaaS: Oracle Event Hub ......</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/subnet_in_oracle_cloud/" title="오라클 클라우드 네트워크 - 서브넷 구성">
+							오라클 클라우드 네트워크 - 서브넷 구성</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/identity_domain/" title="Identity Domain">
+							Identity Domain</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/installing_pms/" title="Oracle PaaS Service Manager 소개 및 설치">
+							Oracle PaaS Service Manager 소개 및 설치</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/changing_trial_account/" title="Oracle Cloud 트라이얼 계정 지원 방식 변경">
+							Oracle Cloud 트라이얼 계정 지원 방식 변경</a>
+		  </li>
+		</ul>
+	</div>
+</div>
+
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">카테고리</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/account">Account</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/api-developerment">Api-Developerment</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/bdcsce">Bdcsce</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/big-data">Big-Data</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/cloud">Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/compute">Compute</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/container">Container</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/data-management">Data-Management</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/database-cloud">Database-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/docker">Docker</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/event">Event</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/iaas">Iaas</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/mysql">Mysql</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle">Oracle</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle-cloud">Oracle-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle-management-cloud">Oracle-Management-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/paas">Paas</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/ravello">Ravello</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/storage">Storage</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/webinar">Webinar</a></li>
+		</ul>
+	</div>
+</div>
+
+	﻿
+<div class="widget-taglist widget">
+	<h4 class="widget__title">태그</h4>
+	<div class="widget__content">
+		<a class="widget__link widget__link--taglist" href="/tags/acc" title="acc">acc (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/analytics" title="analytics">analytics (3)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/api" title="api">api (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/api-catalog" title="api-catalog">api-catalog (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/automation" title="automation">automation (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/backup" title="backup">backup (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/bdcsce" title="bdcsce">bdcsce (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/bdpcs" title="bdpcs">bdpcs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/big-data" title="big-data">big-data (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/bmcs" title="bmcs">bmcs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/cloud" title="cloud">cloud (14)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/compute" title="compute">compute (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/compute-cs" title="compute-cs">compute-cs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/container" title="container">container (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/data-management" title="data-management">data-management (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/data-visualization" title="data-visualization">data-visualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/database" title="database">database (3)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/database-backup" title="database-backup">database-backup (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/dbcs" title="dbcs">dbcs (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/desktop" title="desktop">desktop (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/devops" title="devops">devops (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/docker" title="docker">docker (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/event-hub" title="event-hub">event-hub (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/hadoop" title="hadoop">hadoop (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/iaas" title="iaas">iaas (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/iac" title="iac">iac (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/identity-domain" title="identity-domain">identity-domain (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/integration" title="integration">integration (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/ip-networks" title="ip-networks">ip-networks (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/kafka" title="kafka">kafka (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/management" title="management">management (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/monitoring" title="monitoring">monitoring (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/mysql" title="mysql">mysql (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/nested-virtualization" title="nested-virtualization">nested-virtualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/network" title="network">network (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/object-storage" title="object-storage">object-storage (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/occs" title="occs">occs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/omc" title="omc">omc (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle" title="oracle">oracle (7)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle-bdcsce" title="oracle-bdcsce">oracle-bdcsce (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle-cloud" title="oracle-cloud">oracle-cloud (8)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle-code" title="oracle-code">oracle-code (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/paas" title="paas">paas (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/patch" title="patch">patch (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/psm" title="psm">psm (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/ravello" title="ravello">ravello (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/security" title="security">security (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/spark" title="spark">spark (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/ssh" title="ssh">ssh (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/storage" title="storage">storage (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/subnet" title="subnet">subnet (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/talkit" title="talkit">talkit (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/trial-account" title="trial-account">trial-account (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/tutorial" title="tutorial">tutorial (5)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/virtualization" title="virtualization">virtualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/vm" title="vm">vm (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/webinar" title="webinar">webinar (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/window" title="window">window (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/%ec%9e%91%ec%84%b1%ec%a4%91" title="작성중">작성중 (1)</a>
+	</div>
+</div>
+
+	<div class="widget-categories widget">
+	<h4 class="widget__title">SNS(Social Network Service)</h4>
+	<div class="widget__content">
+		<a href="https://github.com/oracloud-kr-team" target="_blank" title="github"><img src="/img/icon/github.png" width="50px" height="50px"/></a>
+		<a href="https://www.slideshare.net/ssusercda07e" target="_blank" title="slideshare"><img src="/img/icon/slideshare.png" width="50px" height="50px"/></a>
+		<a href="https://www.youtube.com/channel/UCboJr3TLlqeDqpBURRdb_lg" target="_blank" title="youtube"><img src="/img/icon/youtube.png" width="50px" height="50px"/></a>
+		<a href="mailto:oracloud.kr@gmail.com" title="email"><img src="/img/icon/email.png" width="50px" height="50px"/></a>
+	</div>
+</div>
+
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">오라클 클라우드 관련 사이트</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="http://cloud.oracle.com/">
+				Oracle Public Cloud 홈페이지</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="http://developer.oracle.com/">
+				Oracle Developers</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="http://docs.oracle.com/en/cloud/">
+				오라클 클라우드 공식 문서</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="https://apexapps.oracle.com/pls/apex/f?p=44785">
+				Oracle Learning Library(실습강좌)</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.youtube.com/watch?v=28PWeD_w9zA&list=PL_lN0QYuCPSFimWrf4FpnaGAXzcBJLN7i">
+				ORA 클라우드 지식먹방(Youtube 채널-한국어)</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="http://post.naver.com/odpkorea">
+				Oracle Digital Prime(한글)</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+	
+	<div class="widget-categories widget">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51xzzorci1s&amp;m=6&amp;c=ff0000&amp;cr1=ffffff&amp;br=6&amp;oo=3&amp;sx=0" async="async"></script>
+</div>
+
+</aside>
+
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2017 sev02-Oracle Cloud 블로그. </p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

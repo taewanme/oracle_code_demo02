@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Management on sev02-Oracle Cloud 블로그</title>
+    <link>/tags/data-management/</link>
+    <description>Recent content in Data Management on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 May 2017 16:20:58 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/data-management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>데이타베이스 클라우드 서비스 인스턴스에서 백업 구성</title>
+      <link>/post/dbcsbackup/</link>
+      <pubDate>Wed, 10 May 2017 16:20:58 +0900</pubDate>
+      
+      <guid>/post/dbcsbackup/</guid>
+      <description>본 문서에서는 데이타베이스 클라우드 서비스 환경에서 기본으로 구성되는 백업 구성에 대해서 소개하고 해당 구성을 변경하는 방법에 대해서 소개합니다. 데이타베이스 클라우드 서비스는 기본으로 데이타베이스, 데이타베이스 및 그리드 인프라스트럭처(RAC 구성시) 관련 구성 파일, 시스템 및 클라우드 Tooling 관련 파일에 대한 백업을 수행할 수 있는 기능을 지원합니다. 이러한 백업 기능을 지원하기 위해서 시스템 유틸리티, 오라클 데이타베이스 유틸리티, 오라클 데이타베이스 백업 서비스를 활용하며 이 모든 서비스는 인스턴스 생성시 자동으로 설치됩니다.
+오라클 데이타베이스 백업 서비스에 대한 상세 정보는 이곳를 참고하십시오.</description>
+    </item>
+    
+    <item>
+      <title>MySQL Cloud를 시작하고 샘플 스키마 생성하기</title>
+      <link>/post/mysqlcs/</link>
+      <pubDate>Thu, 04 May 2017 17:17:35 +0900</pubDate>
+      
+      <guid>/post/mysqlcs/</guid>
+      <description>본 문서는 Oracle SCC Center에서 고객 전달용으로 작성한 워드 문서를 블로그 포맷으로 변경하여 작성한 문서입니다. 해당 문서에는 MySQL을 Oracle Cloud에서 어떻게 시작하고 사용할 수 있는지를 보여주는 문서로 인스턴스를 생성하고 생성된 MySQL 인스턴스에 Sample 스키마를 업로드하는 과정까지 보여주고 있습니다.
+선행 작업 본 문서는 다음과 같은 절차가 완료되었다는 것을 전제로 합니다.
+ 오라클 클라우드 계정 생성 완료 가상머신 생성에 필요한 인증서를 생성 오라클 클라우드 웹 사이트에 로그인이 완료  오라클 클라우드 계정을 확보하지 못했거나, 가상머신에 등록 할 보안 키를 만들지 못한 상태라면, 다음 문서를 참조하여 먼저 준비하시고 다음으로 넘어가시기 바랍니다.</description>
+    </item>
+    
+  </channel>
+</rss>

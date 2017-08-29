@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paas on sev02-Oracle Cloud 블로그</title>
+    <link>/tags/paas/</link>
+    <description>Recent content in Paas on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 May 2017 15:48:24 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/paas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Oracle MySQL Cloud Service</title>
+      <link>/post/mysql_cs/</link>
+      <pubDate>Wed, 10 May 2017 15:48:24 +0900</pubDate>
+      
+      <guid>/post/mysql_cs/</guid>
+      <description>Oracle MySQL Cloud Service 개요 오라클이 오픈소스 형태로 개발하고 있는 MySQL은 전 세계에서 가장 많이 사용되는 오픈소스 데이터베이스 입니다. 오라클 클라우드는 Oracle MySQL Cloud Service(이하 MySQL CS)를 2016년 11월에 출시하였습니다. 2017년 5월 현재 오라클 클라우드는 관계형 데이터베이스 서비스1로 Oracle Database CS와 MySQL CS를 제공합니다.
+MySQL CS는 MySQL Enterprise Edition 라이센스를 기반으로하는 PaaS 서비스 입니다.
+MySQL CS가 제공하는 엔터프라이즈 지원 기능은 다음과 같습니다.
+ 데이터베이스 관리 체계(자동 프로비저닝, 패치, 인스턴스 관리, 모니터링) MySQL 전문 관리 도구  MySQL Workbench MySQL Enterprise Monitor Oracle Enterprise Manager for MySQL  탄력적인 확장성(Elastic scalability) 고가용성(High Availability) 다계층 보안(Multi-layer security)  MySQL CS의 특징 Oracle MySQL CS는 라이센스, 보안, 성능, 안전성, 관리 효율성, 백업과 복구 측면에서 다음과 같은 특징을 제공합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

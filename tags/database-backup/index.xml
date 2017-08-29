@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database Backup on sev02-Oracle Cloud 블로그</title>
+    <link>/tags/database-backup/</link>
+    <description>Recent content in Database Backup on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Mar 2017 17:51:51 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/database-backup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Oracle Database Backup Cloud Service(ODBCS) 소개</title>
+      <link>/post/obcs/</link>
+      <pubDate>Fri, 31 Mar 2017 17:51:51 +0900</pubDate>
+      
+      <guid>/post/obcs/</guid>
+      <description>Overview 전통적으로 데이터베이스의 오프사이트 백업은 테이프로 백업 후 리모트 위치로 복제하여 보관해왔습니다. 그러나 이와 같은 방법은 가격적으로나 운영적인 측면에서 많은 노력을 기울어야 합니다. ODBCS는 이와 같은 니즈에 대한 매우 훌륭한 선택적인 방안을 제공합니다.
+클라우드 스토리지에 데이터베이스 백업본을 저장하는 ODBCS는 On premise의 데이터베이스나 Cloud 상에서 운영되는 데이터베이스 모두 백업 가능합니다. 기존 클라우드 환경에서 제공되던 스토리지 스냅샷 기반에 의한 데이터베이스 백업이 아닌 RMAN을 통한 논리적 백업을 지원하기 때문에 기존 On premise의 환경과 100% 동일한 백업환경을 제공합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

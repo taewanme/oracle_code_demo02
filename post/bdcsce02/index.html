@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<META http-equiv="Expires" content="-1">
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Cache-Control" content="No-Cache">
+
+<title>Oracle Big Data – Compute Edition: 인스턴스 생성 </title>
+<meta name="description" content="오라클 클라우드 기술 블로그">
+<meta name="generator" content="Hugo 0.25.1" />
+<meta property="og:title" content="Oracle Big Data – Compute Edition: 인스턴스 생성 " />
+<meta property="og:description" content="오라클 클라우드는 Hadoop PaaS 서비스로 Oracle Big Data Cloud Service Compute-Edition(이하 BDCSCE)을 지난 2017년 03월에 출시하였습니다. BDCSCE는 Hortonworks의 HDP를 기반으로 합니다. BCCSCE를 인스턴스를 생성하는 절차를 소개합니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/bdcsce02/" />
+
+
+
+<meta property="article:published_time" content="2017-07-28T11:59:47&#43;09:00"/>
+<meta property="article:modified_time" content="2017-07-28T11:59:47&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/minsu.css" type="text/css" media="all" />
+<script type="text/javascript" src="/js/scripts.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="/img/icon/oracle.png" />
+
+
+
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="/" title="한국오라클 DBU, 클라우드 세일즈 컨설팅팀" rel="home">
+						<h1 class="logo__title">한국오라클 DBU, 클라우드 세일즈 컨설팅팀</h1>
+						<h2 class="logo__tagline">Oracle Cloud 블로그</h2>
+					</a>
+				</div>
+			</div>
+			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+		<li class="menu__item "><a class="menu__link" href="/" title="블로그 메인 페이지 " >HOME</a></li>
+		<li class="menu__item "><a class="menu__link" href="/oraclooud/" title="oracloud.kr을 소개합니다. " >ORACLOUD.KR 소개</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-iaas/" title="IaaS 서비스 관련 문서를 정리하는 페이지입니다." >IAAS 서비스</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-paas/" title="PaaS 서비스 관련 문서를 정리하는 페이지입니다." >PAAS 서비스</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc_news/" title="" >ORACLE CLOUD 새소식</a></li>
+		<li class="menu__item "><a class="menu__link" href="/opc-terminology/" title="오라클 클라우드에서 각 서비스에서 사용하는 용어의 정의를 정리합니다." >OPC 용어사전</a></li>
+		<li class="menu__item "><a class="menu__link" href="https://gitter.im/oracloud-korea-user-group/Lobby" title="블로그 사용자간의 원할한 소통을 위해 준비한 Gitter 채팅 서비스로 이동합니다."target='_blank' >오라클 클라우드 채팅룸</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+
+<div class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">Oracle Big Data – Compute Edition: 인스턴스 생성 </h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2017-07-28 11:59:47 &#43;0900 KST">July 28, 2017</time>
+				<span class="post__meta-categories meta-categories">
+					<svg class="icon icon-category" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+					<a class="meta-categories__link" href="/categories/big-data-compute-edition" rel="category">big data compute-edition</a></span>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			<figure class="post__thumbnail">
+				<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/oracloud-big-logo.jpg" alt="Oracle Big Data – Compute Edition: 인스턴스 생성 ">
+			</figure>
+			
+
+<p>오라클 클라우드는 Hadoop PaaS 서비스로 <strong>Oracle Big Data Cloud Service Compute-Edition</strong>(이하 BDCSCE)을 지난 2017년 03월에 출시하였습니다. BDCSCE는 Hortonworks의 HDP를 기반으로 합니다. BCCSCE를 인스턴스를 생성하는 절차를 소개합니다.</p>
+
+<h2 id="ddd">ddd</h2>
+
+<h3 id="kkk">kkk</h3>
+
+<h3 id="kkk-1">kkk</h3>
+
+<h3 id="kkk-2">kkk</h3>
+
+<h3 id="kkk-3">kkk</h3>
+
+<h3 id="kkk-4">kkk</h3>
+
+<h2 id="test">test</h2>
+
+<p><img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_01.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_02.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_03.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_04.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_05.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_06.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_07.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_08.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_09.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_10.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_11.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_12.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_13.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_14.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_15.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_16.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_17.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_18.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_19.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_20.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_21.jpg" alt="" />
+<img src="https://oracloud-kr-teamrepo.github.io/2017/07/bdcsce_provisioning/bdcsce_22.jpg" alt="" /></p>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m4.73135 3.3795002q0-.5597-.39604-.9557-.39604-.3961-.95577-.3961-.55974 0-.95578.3961-.39604.396-.39604.9557 0 .5598.39604.9558.39604.3961.95578.3961.55973 0 .95577-.3961.39604-.396.39604-.9558zm11.26865 6.0832q0 .5596998-.39076.9504998l-5.18548 5.196q-.41188.3908-.9610504.3908-.55974 0-.9505-.3908l-7.5511496-7.5616998q-.40132-.3907-.68119-1.0666-.27987-.6759-.27987-1.2357v-4.3934q0-.54920004.40132-.95050004.40132-.4013.9505-.4013h4.39339q.55974 0 1.23565.2799.67591.2798 1.07723.6812l7.55115 7.54060004q.39076.4118.39076.961z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link" href="/tags/big-data/" rel="tag">big data</a></li>
+		<li class="tags__item"><a class="tags__link" href="/tags/hadoop/" rel="tag">hadoop</a></li>
+		<li class="tags__item"><a class="tags__link" href="/tags/spark/" rel="tag">spark</a></li>
+	</ul>
+</div>
+
+	</article>
+	
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="김태완 avatar" src="/img/author/taewan.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">작성자: 김태완</span>
+	</div>
+	<div class="authorbox__description">
+		한국오라클 DBU 클라우드 서비스 팀 소속입니다. 클라우드, 가상화, 네트워크, 데이터 분석에 중심을 두고 있습니다.
+	</div>
+	<div class="authorbox__description">
+		E-mail: oracloud.kr@gmail.com
+	</div>
+</div>
+
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/post/bdcsce01/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">Oracle Big Data – Compute Edition</p></a>
+	</div>
+</nav>
+
+	
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://oracloud-kr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="//google.com/search">
+		<label>
+			<span class="screen-reader-text">Search for:</span>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="/" />
+	</form>
+</div>
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">ToC (목차)</h4>
+	<div class="widget__content">
+	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#ddd">ddd</a>
+<ul>
+<li><a href="#kkk">kkk</a></li>
+<li><a href="#kkk-1">kkk</a></li>
+<li><a href="#kkk-2">kkk</a></li>
+<li><a href="#kkk-3">kkk</a></li>
+<li><a href="#kkk-4">kkk</a></li>
+</ul></li>
+<li><a href="#test">test</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">최신글</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/post/bdcsce02/" title="Oracle Big Data – Compute Edition: 인스턴스 생성 ">
+							Oracle Big Data – Compute Edition: 인스턴스 생성 </a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/bdcsce01/" title="Oracle Big Data – Compute Edition">
+							Oracle Big Data – Compute Edition</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/dvcs002/" title="쉽게 따라해보는 데이터 시각화 제2회 &#39;데이터 연결&#39;">
+							쉽게 따라해보는 데이터 시각화 제2회 &#39;데이터 연결&#39;</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/dbcsbackup/" title="데이타베이스 클라우드 서비스 인스턴스에서 백업 구성">
+							데이타베이스 클라우드 서비스 인스턴스에서 백업 구성</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/mysql_cs/" title="Oracle MySQL Cloud Service">
+							Oracle MySQL Cloud Service</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/mysqlcs/" title="MySQL Cloud를 시작하고 샘플 스키마 생성하기">
+							MySQL Cloud를 시작하고 샘플 스키마 생성하기</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/compute_security/" title="오라클 클라우드 Compute CS 보안 적용">
+							오라클 클라우드 Compute CS 보안 적용</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/compute_instance/" title="우분투 17.04 가상머신 만들기">
+							우분투 17.04 가상머신 만들기</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/storage_cs/" title="Oracle Storage Cloud Service">
+							Oracle Storage Cloud Service</a>
+		  </li>
+			<li class="widget__item">
+				<a class="widget__link" href="/post/dvcs001/" title="쉽게 따라해보는 데이터 시각화 제1회 &#39;실습환경 구성&#39;">
+							쉽게 따라해보는 데이터 시각화 제1회 &#39;실습환경 구성&#39;</a>
+		  </li>
+		</ul>
+	</div>
+</div>
+
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">카테고리</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/big-data-compute-edition">Big-Data-Compute-Edition</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/cloud">Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/compute">Compute</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/container">Container</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/data-management">Data-Management</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/database-cloud">Database-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/docker">Docker</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/iaas">Iaas</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/mysql">Mysql</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle">Oracle</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle-cloud">Oracle-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/oracle-management-cloud">Oracle-Management-Cloud</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/paas">Paas</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/ravello">Ravello</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/storage">Storage</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/webinar">Webinar</a></li>
+		</ul>
+	</div>
+</div>
+
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">테그</h4>
+	<div class="widget__content">
+		<a class="widget__link widget__link--taglist" href="/tags/acc" title="acc">acc (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/analytics" title="analytics">analytics (3)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/automation" title="automation">automation (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/backup" title="backup">backup (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/bdpcs" title="bdpcs">bdpcs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/big-data" title="big-data">big-data (3)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/bmcs" title="bmcs">bmcs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/cloud" title="cloud">cloud (13)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/compute" title="compute">compute (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/compute-cs" title="compute-cs">compute-cs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/container" title="container">container (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/data-management" title="data-management">data-management (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/data-visualization" title="data-visualization">data-visualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/database" title="database">database (3)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/database-backup" title="database-backup">database-backup (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/dbcs" title="dbcs">dbcs (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/desktop" title="desktop">desktop (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/devops" title="devops">devops (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/docker" title="docker">docker (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/hadoop" title="hadoop">hadoop (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/iaas" title="iaas">iaas (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/iac" title="iac">iac (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/management" title="management">management (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/monitoring" title="monitoring">monitoring (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/mysql" title="mysql">mysql (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/nested-virtualization" title="nested-virtualization">nested-virtualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/object-storage" title="object-storage">object-storage (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/occs" title="occs">occs (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/omc" title="omc">omc (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle" title="oracle">oracle (6)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/oracle-cloud" title="oracle-cloud">oracle-cloud (5)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/paas" title="paas">paas (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/ravello" title="ravello">ravello (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/security" title="security">security (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/spark" title="spark">spark (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/ssh" title="ssh">ssh (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/storage" title="storage">storage (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/talkit" title="talkit">talkit (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/tutorial" title="tutorial">tutorial (4)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/virtualization" title="virtualization">virtualization (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/vm" title="vm">vm (1)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/webinar" title="webinar">webinar (2)</a>
+		<a class="widget__link widget__link--taglist" href="/tags/window" title="window">window (1)</a>
+	</div>
+</div>
+
+	<div class="widget-categories widget">
+	<h4 class="widget__title">SNS(Social Network Service)</h4>
+	<div class="widget__content">
+		<a href="https://github.com/oracloud-kr-team" target="_blank" title="github"><img src="/img/icon/github.png" width="50px" height="50px"/></a>
+		<a href="https://www.slideshare.net/ssusercda07e" target="_blank" title="slideshare"><img src="/img/icon/slideshare.png" width="50px" height="50px"/></a>
+		<a href="https://www.youtube.com/channel/UCboJr3TLlqeDqpBURRdb_lg" target="_blank" title="youtube"><img src="/img/icon/youtube.png" width="50px" height="50px"/></a>
+		<a href="mailto:oracloud.kr@gmail.com" title="email"><img src="/img/icon/email.png" width="50px" height="50px"/></a>
+	</div>
+</div>
+
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">오라클 클라우드 관련 사이트</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="http://cloud.oracle.com/">
+				Oracle Public Cloud 홈페이지</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="http://developer.oracle.com/">
+				Oracle Developers</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="http://docs.oracle.com/en/cloud/">
+				오라클 클라우드 문서</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="https://apexapps.oracle.com/pls/apex/f?p=44785">
+				Oracle Learning Library</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+	
+</aside>
+
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2017 한국오라클 DBU, 클라우드 세일즈 컨설팅팀. </p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+</body>
+</html>
+

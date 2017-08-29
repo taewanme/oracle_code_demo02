@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backup on sev02-Oracle Cloud 블로그</title>
+    <link>/tags/backup/</link>
+    <description>Recent content in Backup on sev02-Oracle Cloud 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 May 2017 16:20:58 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/backup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>데이타베이스 클라우드 서비스 인스턴스에서 백업 구성</title>
+      <link>/post/dbcsbackup/</link>
+      <pubDate>Wed, 10 May 2017 16:20:58 +0900</pubDate>
+      
+      <guid>/post/dbcsbackup/</guid>
+      <description>본 문서에서는 데이타베이스 클라우드 서비스 환경에서 기본으로 구성되는 백업 구성에 대해서 소개하고 해당 구성을 변경하는 방법에 대해서 소개합니다. 데이타베이스 클라우드 서비스는 기본으로 데이타베이스, 데이타베이스 및 그리드 인프라스트럭처(RAC 구성시) 관련 구성 파일, 시스템 및 클라우드 Tooling 관련 파일에 대한 백업을 수행할 수 있는 기능을 지원합니다. 이러한 백업 기능을 지원하기 위해서 시스템 유틸리티, 오라클 데이타베이스 유틸리티, 오라클 데이타베이스 백업 서비스를 활용하며 이 모든 서비스는 인스턴스 생성시 자동으로 설치됩니다.
+오라클 데이타베이스 백업 서비스에 대한 상세 정보는 이곳를 참고하십시오.</description>
+    </item>
+    
+  </channel>
+</rss>
